@@ -26,4 +26,4 @@ color,vcomb(s->kl,U,black))));}
 void main(){printf("%d %d\n",32,32);while(yx<32*32)
 U.x=yx%32-32/2,U.z=32/2-yx++/32,U.y=32/2/tan(25/114.5915590261),U=vcomb(255.,
 trace(3,black,vunit(U)),black),
-printf("%.0f %.0f %.0f\n",U),emscripten_run_script("setpixel(0,0,0)");}/*minray!*/
+printf("%.0f %.0f %.0f\n",U),EM_ASM({setpixel($0,$1,$2)},U.x,U.y,U.z);}/*minray!*/
