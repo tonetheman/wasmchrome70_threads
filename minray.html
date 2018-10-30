@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        var c = null;
+        var ctx = null;
+
+        function setpixel(r,g,b) {
+            // do the ctx stuff
+        }
+
+        function mainline() {
+
+            c = document.getElementById("c");
+            ctx = c.getContext("2d");
+
+            // load the script
+            let s = document.createElement("script");
+            s.src = "minray.js";
+            document.body.appendChild(s);
+
+        }
+        window.onload = mainline;
+    </script>
+
+    
+    <canvas id="c" width="32" height="32"></canvas>
+</body>
+</html>
