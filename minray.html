@@ -5,16 +5,30 @@
     <script>
         var c = null;
         var ctx = null;
+        var imageData = null;
+        var data = null;
 
-        function setpixel(r,g,b) {
+        function setpixel(r,g,b,idx) {
             // do the ctx stuff
-            console.log("set pixel called",r,g,b);
+            console.log("set pixel called",r,g,b,idx);
+            let ri = idx*3;
+            data[ri+0] = r;
+            data[ri+1] = g;
+            data[ri+2] = b;
+        }
+
+        function pixelsdone() {
+            console.log("pixels are finished!");
+            ctx.putImageData(imageData,0,0);
         }
 
         function mainline() {
 
             c = document.getElementById("c");
             ctx = c.getContext("2d");
+
+            imageData = ctx.getImageData(0, 0, c.width, c.height);
+            data = imageData.data;
 
             // load the script
             let s = document.createElement("script");
