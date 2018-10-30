@@ -24,14 +24,15 @@ eta*(1-d*d);return vcomb(s->kt,e>0?trace(level,P,vcomb(eta,D,vcomb(eta*d-sqrt
 (e),N,black))):black,vcomb(s->ks,trace(level,P,vcomb(2*d,N,D)),vcomb(s->kd,
 color,vcomb(s->kl,U,black))));}
 void main(){
-	printf("%d %d\n",32,32);
+	int junk=512;
+	printf("%d %d\n",junk,junk);
 	int index=0;
-	while(yx<32*32) {
-		U.x=yx%32-32/2;
-		U.z=32/2-yx++/32;
-		U.y=32/2/tan(25/114.5915590261);
+	while(yx<junk*junk) {
+		U.x=yx%junk-junk/2;
+		U.z=junk/2-yx++/junk;
+		U.y=junk/2/tan(25/114.5915590261);
 		U=vcomb(255.,trace(3,black,vunit(U)),black);
-		printf("%.0f %.0f %.0f\n",U);
+		//printf("%.0f %.0f %.0f\n",U);
 		EM_ASM({setpixel($0,$1,$2,$3)},U.x,U.y,U.z,index);
 		index += 1;
 	}/*minray!*/
