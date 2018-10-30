@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <title>Threads test</title>
+  <body>
+    <script>
+    function logit(msg) {
+      let ll = document.getElementById("messages");
+      let child = document.createElement("div");
+      child.innerText = msg;
+      ll.appendChild(child);
+    }
+    </script>
+    <script src="test.js"></script>
+    <h1>thread testing</h1>
+    <div id="messages"></div>
+  </body>
+</html>
