@@ -95,7 +95,10 @@
    } 
    FILE *f = fopen("image.ppm", "w");         // Write image to PPM file. 
    fprintf(f, "P3\n%d %d\n%d\n", w, h, 255); 
-   for (int i=0; i<w*h; i++) 
-     fprintf(f,"%d %d %d ", toInt(c[i].x), toInt(c[i].y), toInt(c[i].z)); 
+   for (int i=0; i<w*h; i++) {
+     //fprintf(f,"%d %d %d ", toInt(c[i].x), toInt(c[i].y), toInt(c[i].z)); 
+     EM_ASM({setpixel($0,$1,$2,$3)},toInt(c[i].x), toInt(c[i].y), toInt(c[i].z),i);
+   }
+     
    EM_ASM({pixelsdone()});
  } 
