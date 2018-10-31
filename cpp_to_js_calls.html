@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<script>
+
+function definedInJS(msg) {
+    console.log("definedInJS: " + msg);
+}
+
+function mainline() {
+    let s = document.createElement("script");
+    s.src = "cpptojs.js";
+    document.body.appendChild(s);
+}
+
+window.onload = mainline;
+</script>
+
+<h3>calling js from cpp </h3>
+
+</body>
+</html>
