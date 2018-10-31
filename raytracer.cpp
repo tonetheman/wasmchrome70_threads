@@ -233,20 +233,19 @@ void render(const std::vector<Sphere> &spheres)
             *pixel = trace(Vec3f(0), raydir, spheres, 0);
         }
     }
-    // Save result to a PPM image (keep these flags if you compile under Windows)
-    //std::ofstream ofs("./untitled.ppm", std::ios::out | std::ios::binary);
+
+    // let javascript know we are done
+    // write each pixel back to javascript
+    // js will decide what to do with the data
     std::cout << "P6\n" << width << " " << height << "\n255\n";
     for (unsigned i = 0; i < width * height; ++i) {
-        //std::cout << (unsigned char)(std::min(float(1), image[i].x) * 255) <<
-        //       (unsigned char)(std::min(float(1), image[i].y) * 255) <<
-        //       (unsigned char)(std::min(float(1), image[i].z) * 255);
         EM_ASM({setpixel($0,$1,$2,$3)},
             (unsigned char)(std::min(float(1), image[i].x) * 255),
             (unsigned char)(std::min(float(1), image[i].y) * 255),
             (unsigned char)(std::min(float(1), image[i].z) * 255),i);
     }
-    //ofs.close();
     delete [] image;
+    // notify js that we are done with the pixels
     EM_ASM({pixelsdone()});
 }
 

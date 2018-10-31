@@ -7,11 +7,6 @@
 
 let W = 640, H = 480;
 function setpixel(r,g,b,idx) {
-    // do the ctx stuff
-    if (idx<10) {
-      console.log("set pixel called",r,g,b,idx);
-    }
-    
     let ri = idx*4;
     data[ri+0] = r;
     data[ri+1] = g;
