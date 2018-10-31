@@ -9,3 +9,6 @@ calling js with this: https://kripken.github.io/emscripten-site/docs/porting/con
 
 Not sure how to pass a string buffer to a javascript function.
 Need to read further on that. Is that even possible?
+
+scratch a pixel raytracing
+https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/ray-tracing-practical-example
