@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <canvas id="c" width="64" height="64"></canvas>
+        <script>
+        let W = 16, H = 16;
+        function mainline() {
+            console.log("mainline is called");
+            let c = document.getElementById("c");
+            let ctx = c.getContext("2d");
+            let imageData = ctx.getImageData(0,0,W,H);
+            let data = imageData.data;
+            let counter = 0;
+            for (let i=0;i<W;i++) {
+                for (let j=0;j<H;j++) {
+                    data[counter+0] = 255;
+                    data[counter+1] = 0;
+                    data[counter+2] = 0;
+                    data[counter+3] = 255;
+                    counter+=4;
+                    //console.log("counter:",counter);
+                }
+            }
+            console.log("imageData:",imageData);
+            console.log("data:",data);
+            ctx.putImageData(imageData,0,0);
+            console.log("mainline done");
+        }
+        
+        window.onload = mainline;
+        </script>
+    </body>
+</html>

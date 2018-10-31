@@ -11,10 +11,11 @@
         function setpixel(r,g,b,idx) {
             // do the ctx stuff
             //console.log("set pixel called",r,g,b,idx);
-            let ri = idx*3;
+            let ri = idx*4;
             data[ri+0] = r;
             data[ri+1] = g;
             data[ri+2] = b;
+            data[ri+3] = 255;
         }
 
         function pixelsdone() {
